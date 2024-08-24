@@ -24,7 +24,7 @@ export default function Category() {
     const [data, setData] = React.useState([]);
     const [edit, setEdit] = React.useState(null)
     const dispatch=useDispatch()
-    const categories=useSelector(state=>state.categories)
+    const categories=useSelector(state=>state.categories || [])
     console.log(categories.categories);
 
     useEffect(() => {
