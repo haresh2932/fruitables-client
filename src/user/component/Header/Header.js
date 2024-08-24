@@ -59,14 +59,13 @@ function Header(props) {
         setSelectedSubcategory(subcategory);
         setSubcategoryAnchorEl(event.currentTarget);
     };
-    console.log(selectedCategory);
     const handleClose = () => {
         setCategoryAnchorEl(null);
         setSubcategoryAnchorEl(null);
     };
 
     const handleLogout =()=>{
-        dispatch(logout(user._id))
+        dispatch(logout(user.id))
     }
 
     return (

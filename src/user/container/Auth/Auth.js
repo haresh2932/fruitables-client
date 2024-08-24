@@ -12,7 +12,7 @@ function Auth(props) {
     const dispatch = useDispatch()
 
 
-    const auth = useSelector((state) => state.auth)
+    const auth = useSelector((state) => state.auth || [])
     console.log(auth);
 
 
