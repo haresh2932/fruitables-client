@@ -53,8 +53,8 @@ export const logout = createAsyncThunk(
     async (_id, { dispatch,rejectWithValue }) => {
         try {
 
-            // const id=localStorage.getItem("_id")            
-            const response = await axiosInstance.post('users/logout', { _id });
+            const id=localStorage.getItem("_id")            
+            const response = await axiosInstance.post('users/logout', { id });
             console.log(response);
 
             if (response.status === 200) {
