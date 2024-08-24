@@ -4,9 +4,9 @@ import { BASE_URL } from "../../utils/utilis";
 
 export const getData = () => async (dispatch) => {
     try {
-        const response = await axios.get(BASE_URL + "categories/list-categories")
+        const response = await axiosInstance.get("categories/list-categories")
         
-        // console.log(data);
+        console.log(response);
         dispatch({ type: GET_CATEGORY, payload: response.data })
 
     } catch (error) {
