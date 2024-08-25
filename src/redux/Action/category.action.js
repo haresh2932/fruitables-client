@@ -1,6 +1,7 @@
-import axios from "axios";
+// import axios from "axios";
 import { ADD_CATEGORY, EDIT_CATEGORY, GET_CATEGORY, REMOVE_CATEGORY } from "../ActionType";
-import { BASE_URL } from "../../utils/utilis";
+// import { BASE_URL } from "../../utils/utilis";
+import axiosInstance from "../../utils/axiosInstance";
 
 export const getData = () => async (dispatch) => {
     try {
@@ -17,7 +18,7 @@ export const getData = () => async (dispatch) => {
 
 export const handleDelete = (id) => async (dispatch) => {
     try {
-        const response=await axios.delete(BASE_URL+"categories/delete-category/"+id)
+        const response=await axiosInstance.delete("categories/delete-category/"+id)
         console.log(response);
 
         dispatch({ type: REMOVE_CATEGORY, payload: id })
@@ -28,7 +29,7 @@ export const handleDelete = (id) => async (dispatch) => {
 
 export const handleAdd = (data) => async (dispatch) => {
     try {
-        const response = await axios.post(BASE_URL+"categories/add-category", data);
+        const response = await axiosInstance.post("categories/add-category", data);
 
         console.log(response.data);
 
@@ -40,7 +41,7 @@ export const handleAdd = (data) => async (dispatch) => {
 
 export const handleUpdateData = (data) => async (dispatch) => {
     try {
-        await axios.put(BASE_URL + "categories/update-category/" + data._id, data)
+        await axiosInstance.put("categories/update-category/" + data._id, data)
 
         dispatch({ type: EDIT_CATEGORY, payload: data })
     } catch (error) {
