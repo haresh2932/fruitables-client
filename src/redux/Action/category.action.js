@@ -8,7 +8,7 @@ export const getData = () => async (dispatch) => {
         const response = await axiosInstance.get("categories/list-categories")
         
         console.log(response);
-        dispatch({ type: GET_CATEGORY, payload: response.data })
+        dispatch({ type: GET_CATEGORY, payload: response.data.data })
 
     } catch (error) {
         console.log(error.message,"getdata");
